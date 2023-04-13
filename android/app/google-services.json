@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "205550275466",
+    "project_id": "my-jobtimer-app",
+    "storage_bucket": "my-jobtimer-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205550275466:android:fa6a35519dc2eba44a5673",
+        "android_client_info": {
+          "package_name": "br.com.gabrielpng.job_timer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "205550275466-ftvffoka0npmhdohdno09mi1fpgm824s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkFWdAfthJkSy4D3BxflNv0oZ2EQQURMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "205550275466-ftvffoka0npmhdohdno09mi1fpgm824s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
