@@ -8,7 +8,7 @@ import 'controller/login_controller.dart';
 class LoginPage extends StatelessWidget {
   final LoginController controller;
 
-  const LoginPage({Key? key, required this.controller}) : super(key: key);
+  const LoginPage({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
