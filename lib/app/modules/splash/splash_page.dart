@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:job_timer/app/core/ui/app_config_ui.dart';
+import 'package:job_timer/app/services/auth/auth_service.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -16,13 +17,16 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
+    Modular.get<AuthService>().signOut();
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if(user == null){
-        Modular.to.navigate('/login');
-      }else {
-        Modular.to.navigate('/home');
+      if (user == null) {
+        Future.delayed(const Duration(seconds: 5))
+            .then((_) => Modular.to.navigate('/login'));
+      } else {
+        Future.delayed(const Duration(seconds: 5))
+            .then((_) => Modular.to.navigate('/home'));
       }
-     });
+    });
   }
 
   @override
@@ -34,9 +38,13 @@ class _SplashPageState extends State<SplashPage> {
         ),
         child: Center(
           child: SizedBox(
-              height: 200,
-              width: 200,
-              child: Image.asset('assets/images/Logo.png')),
+                  height: 140,
+                  width: 140,
+                  child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(36)),
+                      child: Lottie.asset("assets/lottie/ampulheta.json"))),
         ),
       ),
     );
