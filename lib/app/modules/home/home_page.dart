@@ -1,11 +1,11 @@
 import 'package:asuka/asuka.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:job_timer/app/entities/project.dart';
 import 'package:job_timer/app/view_models/project_model.dart';
 import '../../core/ui/app_config_ui.dart';
 import 'controller/home_controller.dart';
 import 'widgets/header_projects_menu.dart';
+import 'widgets/project_tile.dart';
 
 class HomePage extends StatelessWidget {
   final HomeController controller;
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
               )),
             ),
             SliverPersistentHeader(
-              delegate: HeaderProjectsMenu(),
+              delegate: HeaderProjectsMenu(controller: controller),
               pinned: true,
             ),
             BlocSelector<HomeController, HomeState, bool>(
@@ -70,10 +70,7 @@ class HomePage extends StatelessWidget {
               builder: (context, projects) {
                 return SliverList(
                   delegate: SliverChildListDelegate(projects
-                      .map((project) => ListTile(
-                            title: Text(project.name),
-                            subtitle: Text('${project.estimate}h'),
-                          ))
+                      .map((project) => ProjectTile(projectModel: project))
                       .toList()),
                 );
               },

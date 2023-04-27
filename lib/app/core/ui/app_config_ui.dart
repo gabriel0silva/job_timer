@@ -19,7 +19,7 @@ class AppConfigUi {
   static final ThemeData theme = ThemeData(
       primarySwatch: primarySwatch,
       primaryColor: const Color(0XFF835AFD),
-      primaryColorLight: const Color(0XFF612CFF),
+      primaryColorLight: const Color(0XFF9C7BFF),
       inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder(),
           enabledBorder: OutlineInputBorder(

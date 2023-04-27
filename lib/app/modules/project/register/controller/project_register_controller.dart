@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:job_timer/app/entities/project.dart';
 import 'package:job_timer/app/entities/project_status.dart';
 import 'package:job_timer/app/services/projects/project_service.dart';
 import 'package:job_timer/app/view_models/project_model.dart';
@@ -9,7 +8,7 @@ import 'package:job_timer/app/view_models/project_model.dart';
 part 'project_register_state.dart';
 
 class ProjectRegisterController extends Cubit<ProjectRegisterStatus> {
-  ProjectService _projectService;
+  final ProjectService _projectService;
 
   ProjectRegisterController({required ProjectService projectService})
       : _projectService = projectService,
