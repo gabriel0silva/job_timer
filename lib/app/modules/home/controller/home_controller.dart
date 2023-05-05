@@ -3,17 +3,21 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:job_timer/app/services/projects/project_service.dart';
-
+import 'package:job_timer/app/services/auth/auth_service.dart';
 import '../../../entities/project_status.dart';
 import '../../../view_models/project_model.dart';
 
 part 'home_state.dart';
 
 class HomeController extends Cubit<HomeState> {
+  final AuthService _authService;
   final ProjectService _projectService;
 
-  HomeController({required ProjectService projectService})
+  HomeController(
+      {required ProjectService projectService,
+      required AuthService authService})
       : _projectService = projectService,
+        _authService = authService,
         super(HomeState.initial());
 
   Future<void> loadProjects() async {
@@ -35,6 +39,16 @@ class HomeController extends Cubit<HomeState> {
       projects: projects,
       projectFilter: status,
     ));
+  }
+
+  Future<void> signOut() async {
+    try {
+      emit(state.copyWith(status: HomeStatus.loading));
+      await _authService.signOut();
+    } catch (e) {
+      emit(state.copyWith(
+          status: HomeStatus.failure, errorMessage: 'Erro ao realizar logout'));
+    }
   }
 
   void updateList() => filter(state.projectFilter);

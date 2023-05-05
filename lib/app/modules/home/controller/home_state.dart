@@ -11,11 +11,13 @@ class HomeState extends Equatable {
   final List<ProjectModel> projects;
   final HomeStatus status;
   final ProjectStatus projectFilter;
+  final String? errorMessage;
 
   const HomeState._({
     required this.projects,
     required this.status,
     required this.projectFilter,
+    this.errorMessage,
   });
 
   HomeState.initial()
@@ -32,11 +34,13 @@ class HomeState extends Equatable {
     List<ProjectModel>? projects,
     HomeStatus? status,
     ProjectStatus? projectFilter,
+    String? errorMessage
   }) {
     return HomeState._(
       projects: projects ?? this.projects,
       status: status ?? this.status,
       projectFilter: projectFilter ?? this.projectFilter,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 }

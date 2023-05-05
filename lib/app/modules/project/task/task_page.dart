@@ -32,9 +32,9 @@ class _TaskPageState extends State<TaskPage> {
     return BlocListener<TaskController, TaskStatus>(
       bloc: widget.controller,
       listener: (context, state) {
-        if(state == TaskStatus.success){
+        if (state == TaskStatus.success) {
           Navigator.pop(context);
-        } else if(state == TaskStatus.failure){
+        } else if (state == TaskStatus.failure) {
           AsukaSnackbar.alert('Erro ao salvar task').show();
         }
       },
@@ -96,7 +96,6 @@ class _TaskPageState extends State<TaskPage> {
                         widget.controller.register(_nameEC.text, duration);
                       }
                     },
-                  
                   ),
                 )
               ],

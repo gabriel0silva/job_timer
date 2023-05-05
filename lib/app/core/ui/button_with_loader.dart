@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'app_config_ui.dart';
-
 class ButtonWithLoader<B extends StateStreamable<S>, S>
     extends StatelessWidget {
   final BlocWidgetSelector<S, bool> selector;

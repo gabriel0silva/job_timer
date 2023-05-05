@@ -7,14 +7,14 @@ class HomeModule extends Module {
   @override
   List<Bind> get binds => [
         BlocBind.lazySingleton(
-            (i) => HomeController(projectService: i())), //AppModule
+            (i) => HomeController(authService: i(), projectService: i())), //AppModule
       ];
 
   @override
   List<ModularRoute> get routes => [
         ChildRoute('/',
             child: ((context, args) => HomePage(
-                  controller: Modular.get()..loadProjects(),
+                  controller: Modular.get()..loadProjects(), 
                 )))
       ];
 }
